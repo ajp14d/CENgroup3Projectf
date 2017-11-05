@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Business Helper</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
+    <link href="../static/signup.css" rel="stylesheet">
+  </head>
+
+  {% if acct %}
+  <div class="container">
+    <div class="header">
+  <ul class="nav nav-pills pull-left">
+    <li role="presentation" class="active"><a href="/index.html" style="color:#004E64; font-weight:bold">Home</a></li>
+  </ul>
+  <ul class="nav nav-pills pull-right">
+    <label style="color:#004E64; font-weight:bold">{{ acct }}</label>
+  </ul>
+  </div>
+  </div>
+
+  {% else %}
+
+  <div class="container">
+    <div class="header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <form class="login-form " action="/" method="POST">
+            <input type="text" name="user_key" class="login-email" id="user_key" placeholder="Email" autofocus="autofocus"/>
+            <input type="password" name="user_password" class="login-password" id="user_password" placeholder="Password"/>
+            <button type="submit" value="submitted" name="signSubmit" type="button">Sign in</button>
+          </form>
+        </ul>
+  {% endif %}
+
+
+
+    </div>
+  </div>
+
+    {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

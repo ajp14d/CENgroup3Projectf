@@ -1,0 +1,30 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="jumbotron jumbotron-codelines">
+  <div class="col-md-7 text-center text-md-left ">
+    <h1>Built for future leaders</h1>
+      <p class="alt-lead mb-4">
+        <b>Button</b> is a tool inspiried by the bright minds of today.
+          From Theatre to Computer Science to Business, you can start here to gurantee a successful, bright future.
+      </p>
+  </div>
+  <div class="contentcontainer med left" style="margin-left: 700px;">
+    <form class="form-signin" action="" autocomplete="off" method="POST">
+      <dl class="form-group mt-0">
+        <label for="username">Name</label>
+          <input type="text" name="username" id="username" class="form-control form-control-lg input-block" placeholder="Enter your name">
+      </dl>
+      <dl class="form-group">
+        <label for="useremail">Email</label>
+          <input type="text" name="useremail" id="useremail" class="form-control form-control-lg input-block" placeholder="email@example.com">
+      </dl>
+      <dl class="form-group">
+        <label for="userpass">Password</label>
+          <input type="password" name="userpass" id="userpass" class="form-control form-control-lg input-block" placeholder="Create a password" data-autocheck-url="/signup_check/password">
+      </dl>
+      <button class="btn btn-primary btn-large f4 btn-block" type="submit" value="signUpSubmit" name="signSubmit">Sign up for Button</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
