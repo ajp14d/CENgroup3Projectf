@@ -3,10 +3,14 @@
 
     <!DOCTYPE html>
     <html>
+      <head>
+        <title>Menu</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='static/menu.css') }}">
+      </head>
       <body>
         <header>
           <div class="container">
-            <h1 class="logo">Ardit's web app</h1>
+            <h1 class="logo">InterviewIQ Home Page</h1>
             <strong><nav>
               <ul class="menu">
                 <li><a href="{{ url_for('home') }}">Home</a></li>
