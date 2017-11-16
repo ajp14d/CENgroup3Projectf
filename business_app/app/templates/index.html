@@ -1,20 +1,23 @@
 {% extends "header.html" %}
 {% block content %}
 
-<html>
-  <head>
-    <title>YourProfile</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
-<link href="../static/menu.css" rel="stylesheet">
-<head>    
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div> 
-
-{% endblock %}
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <header>
+          <div class="container">
+            <h1 class="logo">Ardit's web app</h1>
+            <strong><nav>
+              <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+              </ul>
+            </nav></strong>
+          </div>
+        </header>
+        <div class="container">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </body>
+    </html>
