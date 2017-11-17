@@ -9,15 +9,22 @@
     <link rel="stylesheet" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
     <link href="../static/menu.css" rel="stylesheet">
 </head>
-
-<div class="topnav" id="myTopnav">
-  <a href="#home">Home</a>
-    <select name = "Home" id = "Home"> 
-      <option value="http://www.google.com">GOOGLE</option>
-  </select>
-  <a href="#news">Profile</a>
-  <a href="#contact">Interview Q&A</a>
-  <a href="#about">Add an Interview</a>
-</div>
+  
+<ul class = "myNav">
+  <li><a href = "#">Home</a></li>
+  <li>
+    <a href="#">Interview <span class="arroa">&#9660;</span></a>    
+<!--<div class="topnav" id="myTopnav">-->
+  <ul class="sub-menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#news">Profile</a></li>
+    <li><a href="#contact">Interview Q&A</a></li>
+    <li><a href="#about">Add an Interview</a></li>
+    </ul>
+  </li>
+    <li><a href="#">T.V. Shows</a></li>
+    <li class="current-item"><a href="#">Photos</a></li>
+    <li><a href="#">Site Help</a></li>
+  </ul>
 
 {% endblock %} 
