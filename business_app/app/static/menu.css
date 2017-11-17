@@ -1,12 +1,3 @@
-body {
-    background:#bf5c71 url('body-bg.jpg');
-}
- 
-.clearfix:after {
-    display:block;
-    clear:both;
-}
- 
 /*----- Menu Outline -----*/
 .menu-wrap {
     width:100%;
