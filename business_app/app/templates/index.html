@@ -1,9 +1,11 @@
 {% extends "header.html" %}
 {% block content %}
-
-<head>
+<html>
+  <head>
     <title>InterviewIQ</title>
-    <link rel="stylesheet" type="text/css" href="../static/menu.css"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
+    <link href="../static/menu.css" rel="stylesheet">
 </head>
   
  <h1>Simple Pure CSS Drop Down Menu</h1>
@@ -60,5 +62,9 @@
   <li><a href="#">Menu 6</a></li>
   <li><a href="#">Contact Us</a></li>
 </ul>
-</nav><
-{% endblock %} 
+</nav>
+    
+    
+    
+{%block content%} {% endblock %} 
+</html> 
