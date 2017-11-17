@@ -4,6 +4,22 @@
     <title>IQhomePage</title> 
     <style>
 
+    #container {
+      position: relative;
+    }
+
+    #background {
+       position: absolute;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       z-index: -1;
+       height:10000px;
+
+    background-image:url(https://www.istockphoto.com/photo/interview-in-progress-gm139977634-2144669.jpg)
+    }
+
    ul {
       list-style-type: none;
       margin: 0;
@@ -60,7 +76,13 @@
   
 <body>
   
-<div style="background-color:black;color:white;padding:20px;">
+<div id="container">
+    <div id="background">
+    Text to have as background
+    </div>
+  <br />
+    Normal contents
+</div>
   
  <ul>
   <li><a href="#home">Home</a></li>
