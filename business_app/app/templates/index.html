@@ -2,69 +2,32 @@
 {% block content %}
 <html>
   <head>
-    <title>InterviewIQ</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
+    <title>InterviewIQ</title> 
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
     <link href="../static/menu.css" rel="stylesheet">
 </head>
   
- <h1>Simple Pure CSS Drop Down Menu</h1>
-<nav id="primary_nav_wrap">
-<ul>
-  <li class="current-menu-item"><a href="#">Home</a></li>
-  <li><a href="#">Menu 1</a>
-    <ul>
-      <li><a href="#">Sub Menu 1</a></li>
-      <li><a href="#">Sub Menu 2</a></li>
-      <li><a href="#">Sub Menu 3</a></li>
-      <li><a href="#">Sub Menu 4</a>
-        <ul>
-          <li><a href="#">Deep Menu 1</a>
-            <ul>
-              <li><a href="#">Sub Deep 1</a></li>
-              <li><a href="#">Sub Deep 2</a></li>
-              <li><a href="#">Sub Deep 3</a></li>
-                <li><a href="#">Sub Deep 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Deep Menu 2</a></li>
+  <div class="menu-wrap">
+    <nav class="menu">
+        <ul class="clearfix">
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Movies <span class="arrow">&#9660;</span></a>
+ 
+                <ul class="sub-menu">
+                    <li><a href="#">In Cinemas Now</a></li>
+                    <li><a href="#">Coming Soon</a></li>
+                    <li><a href="#">On DVD/Blu-ray</a></li>
+                    <li><a href="#">Showtimes &amp; Tickets</a></li>
+                </ul>
+            </li>
+            <li><a href="#">T.V. Shows</a></li>
+            <li class="current-item"><a href="#">Photos</a></li>
+            <li><a href="#">Site Help</a></li>
         </ul>
-      </li>
-      <li><a href="#">Sub Menu 5</a></li>
-    </ul>
-  </li>
-  <li><a href="#">Menu 2</a>
-    <ul>
-      <li><a href="#">Sub Menu 1</a></li>
-      <li><a href="#">Sub Menu 2</a></li>
-      <li><a href="#">Sub Menu 3</a></li>
-    </ul>
-  </li>
-  <li><a href="#">Menu 3</a>
-    <ul>
-      <li class="dir"><a href="#">Sub Menu 1</a></li>
-      <li class="dir"><a href="#">Sub Menu 2 THIS IS SO LONG IT MIGHT CAUSE AN ISSEUE BUT MAYBE NOT?</a>
-        <ul>
-          <li><a href="#">Category 1</a></li>
-          <li><a href="#">Category 2</a></li>
-          <li><a href="#">Category 3</a></li>
-          <li><a href="#">Category 4</a></li>
-          <li><a href="#">Category 5</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Sub Menu 3</a></li>
-      <li><a href="#">Sub Menu 4</a></li>
-      <li><a href="#">Sub Menu 5</a></li>
-    </ul>
-  </li>
-  <li><a href="#">Menu 4</a></li>
-  <li><a href="#">Menu 5</a></li>
-  <li><a href="#">Menu 6</a></li>
-  <li><a href="#">Contact Us</a></li>
-</ul>
-</nav>
-    
-    
-    
+    </nav>
+</div>
+  
+  
 {% endblock %} 
 </html> 
