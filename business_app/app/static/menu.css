@@ -1,76 +1,92 @@
-#primary_nav_wrap
-{
-	margin-top:15px
+body {
+    background:#bf5c71 url('body-bg.jpg');
 }
-
-#primary_nav_wrap ul
-{
-	list-style:none;
-	position:relative;
-	float:left;
-	margin:0;
-	padding:0
+ 
+.clearfix:after {
+    display:block;
+    clear:both;
 }
-
-#primary_nav_wrap ul a
-{
-	display:block;
-	color:#333;
-	text-decoration:none;
-	font-weight:700;
-	font-size:12px;
-	line-height:32px;
-	padding:0 15px;
-	font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+ 
+/*----- Menu Outline -----*/
+.menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+    background:#3e3436;
 }
-
-#primary_nav_wrap ul li
-{
-	position:relative;
-	float:left;
-	margin:0;
-	padding:0
+ 
+.menu {
+    width:1000px;
+    margin:0px auto;
 }
-
-#primary_nav_wrap ul li.current-menu-item
-{
-	background:#ddd
+ 
+.menu li {
+    margin:0px;
+    list-style:none;
+    font-family:'Ek Mukta';
 }
-
-#primary_nav_wrap ul li:hover
-{
-	background:#f6f6f6
+ 
+.menu a {
+    transition:all linear 0.15s;
+    color:#919191;
 }
-
-#primary_nav_wrap ul ul
-{
-	display:none;
-	position:absolute;
-	top:100%;
-	left:0;
-	background:#fff;
-	padding:0
+ 
+.menu li:hover > a, .menu .current-item > a {
+    text-decoration:none;
+    color:#be5b70;
 }
-
-#primary_nav_wrap ul ul li
-{
-	float:none;
-	width:200px
+ 
+.menu .arrow {
+    font-size:11px;
+    line-height:0%;
 }
-
-#primary_nav_wrap ul ul a
-{
-	line-height:120%;
-	padding:10px 15px
+ 
+/*----- Top Level -----*/
+.menu > ul > li {
+    float:left;
+    display:inline-block;
+    position:relative;
+    font-size:19px;
 }
-
-#primary_nav_wrap ul ul ul
-{
-	top:0;
-	left:100%
+ 
+.menu > ul > li > a {
+    padding:10px 40px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
 }
-
-#primary_nav_wrap ul li:hover > ul
-{
-	display:block
+ 
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+    background:#2e2728;
+}
+ 
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+ 
+.sub-menu {
+    width:160%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#2e2728;
+}
+ 
+.sub-menu li {
+    display:block;
+    font-size:16px;
+}
+ 
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+ 
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#3e3436;
 }
