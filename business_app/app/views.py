@@ -41,11 +41,11 @@ def home():
 					#if not failure, display output
                     else:
                         pw = "Invalid credentials. Incorrect password or email."
-                        return render_template('register.html', pw=pw, acct=acct)
+                        return render_template('register.html', pw=pw)
                 else:
-					acct = "User account is not registered."
-					print(acct)
-
+                    pw = "User account is not registered."
+                    return render_template('register.html', pw=pw)
+                
             except KeyError:
 				print "Account not registered"
         elif request.form['signSubmit'] == 'signUpSubmit':
