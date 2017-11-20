@@ -70,3 +70,10 @@ def home():
 def index():
 	#create the view for the index
 	return render_template('index.html')
+@b_app.route('/clothing.html')
+def signup():
+	return render_template('clothing.html')
+@b_app.route('/agenda.html')
+def newthing():
+        return render_template('agenda.html')
+
