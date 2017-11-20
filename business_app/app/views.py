@@ -76,4 +76,10 @@ def signup():
 @b_app.route('/agenda.html')
 def newthing():
         return render_template('agenda.html')
+@b_app.route('/interviewQA.html')
+def newinterview():
+	return render_template('interviewQA.html')
+@b_app.route('/calendar.html')
+def newdate():
+	return render_template('calendar.html')
 
