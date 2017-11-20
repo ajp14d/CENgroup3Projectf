@@ -82,4 +82,6 @@ def newinterview():
 @b_app.route('/Calendar.html')
 def newdate():
 	return render_template('Calendar.html')
-
+@b_app.route('/about.html')
+def aboutus():
+	return render_template('about.html')
