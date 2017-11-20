@@ -79,7 +79,7 @@ def newthing():
 @b_app.route('/interviewQA.html')
 def newinterview():
 	return render_template('interviewQA.html')
-@b_app.route('/calendar.html')
+@b_app.route('/Calendar.html')
 def newdate():
-	return render_template('calendar.html')
+	return render_template('Calendar.html')
 
