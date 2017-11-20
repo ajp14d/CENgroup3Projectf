@@ -1,166 +1,158 @@
-(function() {
-  angular
-    .module('calendarApp', ['ngAnimate'])
-    .controller('calendarController', calendarController);
+var Cal = function(divId) {
 
-  function calendarController($scope) {
-    var vm = this,
-      now = new Date(),
-      months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      jan = daysInMonth(1, now.getFullYear()),
-      feb = daysInMonth(2, now.getFullYear()),
-      mar = daysInMonth(3, now.getFullYear()),
-      apr = daysInMonth(4, now.getFullYear()),
-      may = daysInMonth(5, now.getFullYear()),
-      jun = daysInMonth(6, now.getFullYear()),
-      jul = daysInMonth(7, now.getFullYear()),
-      aug = daysInMonth(8, now.getFullYear()),
-      sep = daysInMonth(9, now.getFullYear()),
-      oct = daysInMonth(10, now.getFullYear()),
-      nov = daysInMonth(11, now.getFullYear()),
-      dec = daysInMonth(12, now.getFullYear()),
-      monthRef = [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec],
-      month = now.getMonth(),
-      monthDay = monthRef[now.getMonth()],
-      n = now.getDate(),
-      uidi,
-      uidm,
-      uid;
+  //Store div id
+  this.divId = divId;
 
-    vm.id = now.getDate().toString() + now.getMonth().toString();
-    vm.dataId;
-    vm.events = [];
-    vm.description;
-    vm.type = 'Social';
-    vm.month = months[month];
-    vm.next = next;
-    vm.prev = prev;
-    vm.add = add;
+  // Days of week, starting on Sunday
+  this.DaysOfWeek = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat'
+  ];
 
-    // Place Dates In Correct Place
-    function placeIt() {
-      if (month === 0) {
-        $(".date_item").first().css({
-          'margin-left': '200px'
-        })
-      } else if (month === 1) {
-        $("date_item").first().css({
-          'margin-left': '0px'
-        })
-      } else if (month === 2) {
-        $(".date_item").first().css({
-          'margin-left': '50px'
-        })
-      } else if (month === 3) {
-        $(".date_item").first().css({
-          'margin-left': '200px'
-        })
-      } else if (month === 4) {
-        $(".date_item").first().css({
-          'margin-left': '300px'
-        })
-      } else if (month === 5) {
-        $(".date_item").first().css({
-          'margin-left': '100px'
-        })
-      } else if (month === 6) {
-        $(".date_item").first().css({
-          'margin-left': '200px'
-        })
-      } else if (month === 7) {
-        $(".date_item").first().css({
-          'margin-left': '0px'
-        })
-      } else if (month === 8) {
-        $(".date_item").first().css({
-          'margin-left': '150px'
-        })
-      } else if (month === 9) {
-        $(".date_item").first().css({
-          'margin-left': '250px'
-        })
-      } else if (month === 10) {
-        $(".date_item").first().css({
-          'margin-left': '50px'
-        })
-      } else if (month === 11) {
-        $(".date_item").first().css({
-          'margin-left': '150px'
-        })
-      }
-    }
+  // Months, stating on January
+  this.Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
 
-    // Highlight Present Day
-    function presentDay() {
-      $(".date_item").eq(n - 1).addClass("present");
-    }
+  // Set the current month, year
+  var d = new Date();
 
-    // Print List Of Dates For Current Month
-    function showDays(days) {
-      for (var i = 1; i < days; i++) {
-        var uidi = i;
-        var uidm = month;
-        var uid = uidi.toString() + uidm.toString();
-        $(".dates").append("<div class='date_item' data='" + uid + "'>" + i + "</div>");
-      }
-    }
+  this.currMonth = d.getMonth();
+  this.currYear = d.getFullYear();
+  this.currDay = d.getDate();
 
-    // Get The Current Date
-    function daysInMonth(month, year) {
-      return new Date(year, month, 0).getDate() + 1;
-    }
+};
 
-    // Next Month
-    function next() {
-      if (month < 11) {
-        month++;
-        $(".dates").html('');
-        vm.month = months[month];
-        monthDay = monthRef[month];
-        showDays(monthDay);
-        placeIt();
-      }
-    }
-
-    // Previous Month
-    function prev() {
-      if (month === 0) {
-        return false
-      } else {
-        month--;
-        $(".dates").html('');
-        vm.month = months[month];
-        monthDay = monthRef[month];
-        showDays(monthDay);
-        placeIt();
-      }
-    }
-
-    // Add Events To Specified Date
-    function add() {
-      vm.events.push({
-        id: vm.id,
-        description: vm.description,
-        type: vm.type
-      });
-
-      vm.description = "";
-    }
-
-    // Fetch Unique ID For Each Date Item
-    $(".dates").on("click", ".date_item", function() {
-      vm.id = $(this).attr('data');
-      vm.dataId = $(this).attr('data');
-      $(this).addClass("present").siblings().removeClass("present");
-      $scope.$apply();
-    });
-
-    showDays(monthDay);
-
-    presentDay();
-
-    placeIt();
-
+// Goes to next month
+Cal.prototype.nextMonth = function() {
+  if ( this.currMonth == 11 ) {
+    this.currMonth = 0;
+    this.currYear = this.currYear + 1;
   }
+  else {
+    this.currMonth = this.currMonth + 1;
+  }
+  this.showcurr();
+};
 
-})();
+// Goes to previous month
+Cal.prototype.previousMonth = function() {
+  if ( this.currMonth == 0 ) {
+    this.currMonth = 11;
+    this.currYear = this.currYear - 1;
+  }
+  else {
+    this.currMonth = this.currMonth - 1;
+  }
+  this.showcurr();
+};
+
+// Show current month
+Cal.prototype.showcurr = function() {
+  this.showMonth(this.currYear, this.currMonth);
+};
+
+// Show month (year, month)
+Cal.prototype.showMonth = function(y, m) {
+
+  var d = new Date()
+  // First day of the week in the selected month
+  , firstDayOfMonth = new Date(y, m, 1).getDay()
+  // Last day of the selected month
+  , lastDateOfMonth =  new Date(y, m+1, 0).getDate()
+  // Last day of the previous month
+  , lastDayOfLastMonth = m == 0 ? new Date(y-1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+
+
+  var html = '<table>';
+
+  // Write selected month and year
+  html += '<thead><tr>';
+  html += '<td colspan="7">' + this.Months[m] + ' ' + y + '</td>';
+  html += '</tr></thead>';
+
+
+  // Write the header of the days of the week
+  html += '<tr class="days">';
+  for(var i=0; i < this.DaysOfWeek.length;i++) {
+    html += '<td>' + this.DaysOfWeek[i] + '</td>';
+  }
+  html += '</tr>';
+
+  // Write the days
+  var i=1;
+  do {
+
+    var dow = new Date(y, m, i).getDay();
+
+    // If Sunday, start new row
+    if ( dow == 0 ) {
+      html += '<tr>';
+    }
+    // If not Sunday but first day of the month
+    // it will write the last days from the previous month
+    else if ( i == 1 ) {
+      html += '<tr>';
+      var k = lastDayOfLastMonth - firstDayOfMonth+1;
+      for(var j=0; j < firstDayOfMonth; j++) {
+        html += '<td class="not-current">' + k + '</td>';
+        k++;
+      }
+    }
+
+    // Write the current day in the loop
+    var chk = new Date();
+    var chkY = chk.getFullYear();
+    var chkM = chk.getMonth();
+    if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
+      html += '<td class="today">' + i + '</td>';
+    } else {
+      html += '<td class="normal">' + i + '</td>';
+    }
+    // If Saturday, closes the row
+    if ( dow == 6 ) {
+      html += '</tr>';
+    }
+    // If not Saturday, but last day of the selected month
+    // it will write the next few days from the next month
+    else if ( i == lastDateOfMonth ) {
+      var k=1;
+      for(dow; dow < 6; dow++) {
+        html += '<td class="not-current">' + k + '</td>';
+        k++;
+      }
+    }
+
+    i++;
+  }while(i <= lastDateOfMonth);
+
+  // Closes table
+  html += '</table>';
+
+  // Write HTML to the div
+  document.getElementById(this.divId).innerHTML = html;
+};
+
+// On Load of the window
+window.onload = function() {
+
+  // Start calendar
+  var c = new Cal("divCal");			
+  c.showcurr();
+
+  // Bind next and previous button clicks
+  getId('btnNext').onclick = function() {
+    c.nextMonth();
+  };
+  getId('btnPrev').onclick = function() {
+    c.previousMonth();
+  };
+}
+
+// Get element by id
+function getId(id) {
+  return document.getElementById(id);
+}
