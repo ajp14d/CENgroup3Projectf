@@ -1,9 +1,12 @@
 body {
     background-color: powderblue;
+    font-family: "Helvetica Neue";
 }
 h1 {
     color: blue;
+    font-family: "Helvetica Neue";
 }
 p {
     color: red;
+    font-family: "Helvetica Neue";
 }
