@@ -158,12 +158,16 @@ through and sophisticated answers. If you're stuck, feel free to check out the h
 
 <!-- The following is javascript code for the accordion drop down from https://www.w3schools.com/howto/howto_js_accordion.asp -->
 
-<script>
 var acc = document.getElementsByClassName("accordion");
 var i;
+
 for (i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
         this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
         var panel = this.nextElementSibling;
         if (panel.style.display === "block") {
             panel.style.display = "none";
@@ -172,5 +176,4 @@ for (i = 0; i < acc.length; i++) {
         }
     }
 }
-</script>
 
