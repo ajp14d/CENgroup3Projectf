@@ -1,43 +1,98 @@
 <html>
   <head>
     <title>InterviewIQ</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
-    <link href="../static/signup.css" rel="stylesheet">
+    <style>
+
+    .ul-style {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       overflow: hidden;
+       background-color: #333;
+       }
+
+    .a-dropbtn {
+       display: inline-block;
+       color: white;
+       text-align: center;
+       padding: 14px 16px;
+       text-decoration: none;
+    }
+
+    li a:hover, .dropdown:hover .dropbtn {
+       background-color: red;
+    }
+
+    li.dropdown {
+       display: inline-block;
+    }
+
+    .dropdown-content {
+       display: none;
+       position: absolute;
+       background-color: #f9f9f9;
+       min-width: 160px;
+       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+       z-index: 1;
+    }
+
+    .dropdown-content a {
+       color: black;
+       padding: 12px 16px;
+       text-decoration: none;
+       display: block;
+       text-align: left;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content {
+       display: block;
+    }
+
+  .btn-logout {
+    border-bottom: 12px solid #ccc;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  border-radius:4px;
+    box-shadow:none;
+    float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+
+}
+    </style>
+    <link href="../static/interviewQA.css" rel="stylesheet">
   </head>
 
-  {% if acct %}
-  <div class="container">
-    <div class="header">
-  <ul class="nav nav-pills pull-left">
-    <li role="presentation" class="active"><a href=/index.html" style="color:#004E64; font-weight:bold">Home</a></li>
+  <body>
+
+  <ul class="ul-style">
+   <li style="float:left"><a href="index.html" class="a-dropbtn">Home</a></li>
+   <li style="float:left"><a href="agenda.html" class="a-dropbtn">Agenda</a></li>
+   <li style="float:left"><a href ="Calendar.html" class="a-dropbtn">Calendar</a></li>
+   <li style="float:left"><a href="clothing.html" class="a-dropbtn">Clothing</a></li>
+   <li style="float:left"><a href="interviewQA.html" class="a-dropbtn">InterviewQ&A</a></li>
+   <li class="dropdown">
+     <a href="javascript:void(0)" class="a-dropbtn"> Interviews</a>
+     <div class="dropdown-content">
+       <a href="#">Interview 1</a>
+       <a href="#">Interview 2</a>
+       <a href="#">Interview 3</a>
+     </div>
+   </li>
+   <li style="float:left"><a class="a-dropbtn" href="about.html">AboutUs</a></li>
+   <li class="dropdown" style="float:right">
+     <a href="javascript:void(0)" class="a-dropbtn"> {{ acct }}</a>
+     <div class="dropdown-content">
+       <a href="#">Profile</a>
+       <a href="signout.html">Sign Out</a>
+     </div>
+   </li>
   </ul>
-  <ul class="nav nav-pills pull-right">
-    <label style="color:#004E64; font-weight:bold">{{ acct }}</label>
-  </ul>
-  </div>
-  </div>
-
-  {% else %}
-
-  <div class="container">
-    <div class="header">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          <form class="login-form " action="/" method="POST">
-            <input type="text" name="user_key" class="login-email" id="user_key" placeholder="Email" autofocus="autofocus"/>
-            <input type="password" name="user_password" class="login-password" id="user_password" placeholder="Password"/>
-            <button type="submit" value="submitted" name="signSubmit" type="button">Sign in</button>
-          </form>
-        </ul>
-  {% endif %}
-
-
-
-    </div>
-  </div>
 
     {% block content %} {% endblock %}
-    </div>
   </body>
 </html>

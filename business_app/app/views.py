@@ -45,7 +45,7 @@ def home():
                 else:
                     pw = "User account is not registered."
                     return render_template('register.html', pw=pw)
-                
+
             except KeyError:
 				print "Account not registered"
         elif request.form['signSubmit'] == 'signUpSubmit':
@@ -60,9 +60,14 @@ def home():
             if message == 'failure':
                 err = "Email is already taken. Please try again"
                 return render_template("register.html", err=err)
-            elif re.search("[@.]", acct) is None:
+            #check for a valid email format
+            elif re.search("@([0-9a-z][0-9a-z-]+.)+[a-z]{2,4}$", acct) is None:
                 err = "Please enter a valid email address"
                 print "Invalid Email Format"
+                return render_template("register.html", err=err)
+            elif len(pw) < 7:
+                err = "Password is too short (minimum of 7 characters)"
+                print "short password"
                 return render_template("register.html", err=err)
             #if no error take them to index page
             else:
@@ -118,3 +123,12 @@ def aboutus():
         return redirect(url_for('home'))
 
     return render_template('about.html')
+
+@b_app.route('/signout.html')
+def signout():
+    global currUser
+    currUser = ""
+    if currUser == "":
+        return redirect(url_for('home'))
+
+    return render_template('signout.html')
