@@ -96,11 +96,11 @@ def signup():
 
     return render_template('clothing.html')
 
-@b_app.route('/agenda.html')
+@b_app.route('/agenda.html') # ADD METHODS HERE
 def newthing():
     if currUser == "":
         return redirect(url_for('home'))
-
+# ADD DATABASE STUFF HERE
     return render_template('agenda.html')
 
 @b_app.route('/interviewQA.html')
