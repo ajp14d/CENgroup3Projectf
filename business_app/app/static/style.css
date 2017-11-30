@@ -11,7 +11,6 @@ body {
   background: #444;
   background-image: -webkit-linear-gradient(#28283b 0%, #0f0f17 100%);
   background-image: linear-gradient(#28283b 0%, #0f0f17 100%);
-  color: #444;
   font-family: "Helvetica Neue";
 }
 *,
@@ -36,17 +35,17 @@ a {
   width: 700px;
   margin: 3em auto;
   padding: 2em;
-  border: 1px solid #dcdcff;
+  border: 1px solid black;
   border-radius: 5px;
-  background-color: #white;
+  background-color: white;
 }
 table {
   clear: both;
   width: 100%;
-  border: 1px solid #dcdcff;
+  border: 1px solid black;
   border-radius: 3px;
   border-collapse: collapse;
-  color: #black;
+  color: black;
   font-family: "Helvetica Neue";
   
 }
@@ -59,7 +58,7 @@ td {
   width: 14.28571429%;
 }
 td.not-current {
-  color: #black;
+  color: black;
 }
 td.today {
   font-weight: 700;
