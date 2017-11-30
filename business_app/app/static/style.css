@@ -63,12 +63,12 @@ td.not-current {
 }
 td.today {
   font-weight: 700;
-  color: #28283b;
+  color: 444;
   font-size: 1.5em;
 }
 thead td {
   border: none;
-  color: #28283b;
+  color: #444;
   text-transform: uppercase;
   font-size: 1.5em;
 }
@@ -105,6 +105,6 @@ thead td {
 }
 #btnPrev:hover,
 #btnNext:hover {
-  color: #28283b;
+  color: #444;
   font-weight: bold;
 }
