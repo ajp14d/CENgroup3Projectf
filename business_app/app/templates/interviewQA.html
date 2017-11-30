@@ -1,7 +1,57 @@
 {% extends "header.html" %}
 {% block content %}
 
-<h1>InterviewIQ</h1>
+<html>
+
+	
+<style>
+	
+	h1{
+		color: #444;
+		font-family: "Helvetica Neue";
+	}
+	
+body {
+	color: #444;
+	padding-top: 40px;
+  padding-bottom: 40px;
+	font-size: 16px;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-family: "Helvetica Neue";
+	
+	}
+	
+	
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+	
+</style>
+
+<h1> <center>Welcome to InterviewIQ prep! <center></h1>	
+
 <p>The following are common interview questions that many interviewers use to get to know their applicants during a face to
 face interview and sometimes a phone interview. Save your responses and edit them as you go so they can evolve into thought
 through and sophisticated answers. If you're stuck, feel free to check out the helpful tips.</p>
@@ -160,18 +210,24 @@ through and sophisticated answers. If you're stuck, feel free to check out the h
 </div>
 
 
+</html>	
 
-  <!-- The following is javascript code for the accordion drop down from https://www.w3schools.com/howto/howto_js_accordion.asp -->
+
+<!-- The following is javascript code for the accordion drop down from https://www.w3schools.com/howto/howto_js_accordion.asp -->
 
 <script>
+	
 var acc = document.getElementsByClassName("accordion");
 var i;
 
 for (i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
+	/* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
         this.classList.toggle("active");
+        /* Toggle between hiding and showing the active panel */
         var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
+        if (panel.style.display == "block") {
             panel.style.display = "none";
         } else {
             panel.style.display = "block";

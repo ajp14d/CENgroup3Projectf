@@ -3,12 +3,27 @@
     <title>InterviewIQ</title>
     <style>
 
+      
+    .logo {
+     padding: 30px 0; 
+     text-align: center;
+     }
+      
+.logo img {
+  width: 20%;
+  background-color: #444;
+  padding: 10px;
+}
+      
+      
     .ul-style {
        list-style-type: none;
        margin: 0;
-       padding: 0;
+       padding: none;
+      font-family: "Helvetica Neue";
+      font size: 25px;
        overflow: hidden;
-       background-color: #333;
+       background-color: #444;
        }
 
     .a-dropbtn {
@@ -63,18 +78,28 @@
   line-height: 20px;
 
 }
-    </style>
+h1 {
+       padding: 25px 25px;
+      font-family: "Helvetica Neue";
+      font size: 45px;
+       overflow: hidden;
+       background-color: #ECF1EF;
+      }
+    
+   
+      }
+    
+</style>
     <link href="../static/interviewQA.css" rel="stylesheet">
-  </head>
 
   <body>
-
+    
   <ul class="ul-style">
-   <li style="float:left"><a href="index.html" class="a-dropbtn">Home</a></li>
-   <li style="float:left"><a href="agenda.html" class="a-dropbtn">Agenda</a></li>
-   <li style="float:left"><a href ="Calendar.html" class="a-dropbtn">Calendar</a></li>
-   <li style="float:left"><a href="clothing.html" class="a-dropbtn">Clothing</a></li>
-   <li style="float:left"><a href="interviewQA.html" class="a-dropbtn">InterviewQ&A</a></li>
+   <li style="float:left"><a href="index.html" class="a-dropbtn">Home    </a></li>
+   <li style="float:left"><a href="agenda.html" class="a-dropbtn">Agenda    </a></li>
+   <li style="float:left"><a href ="Calendar.html" class="a-dropbtn">Calendar    </a></li>
+   <li style="float:left"><a href="clothing.html" class="a-dropbtn">Clothing    </a></li>
+   <li style="float:left"><a href="interviewQA.html" class="a-dropbtn">InterviewQ&A    </a></li>
    <li class="dropdown">
      <a href="javascript:void(0)" class="a-dropbtn"> Interviews</a>
      <div class="dropdown-content">
@@ -85,14 +110,18 @@
    </li>
    <li style="float:left"><a class="a-dropbtn" href="about.html">AboutUs</a></li>
    <li class="dropdown" style="float:right">
-     <a href="javascript:void(0)" class="a-dropbtn"> {{ acct }}</a>
+     <a href="javascript:void(0)" class="a-dropbtn"> Account Information</a>
      <div class="dropdown-content">
        <a href="#">Profile</a>
        <a href="signout.html">Sign Out</a>
      </div>
    </li>
   </ul>
+    
+   <img src="{{ url_for('static', filename='InterviewIQ2.jpg') }}" type="image/jpg" class="logo"> </li>
 
-    {% block content %} {% endblock %}
+    
+   {% block content %} {% endblock %}
+    
   </body>
 </html>
