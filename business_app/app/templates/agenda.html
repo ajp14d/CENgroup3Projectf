@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <style>
-    
+
     h2 {
-        
+
         font-family: "Helvetica Neue";
         padding: 15px;
     }
@@ -19,7 +21,7 @@ input[type=text], select, textarea{
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue"; 
 }
 
 label {
@@ -77,28 +79,27 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-
+  <form class="agenda-form" action="" method="POST">
 <h2><center>Add New Event<center></h2>
 
-
-<div class="container">
+    <div class="container">
     <div class="row">
       <div class="col-25">
         <label for="ename">Event Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="firstname" placeholder="Type here..">
+        <input type="text" id="fname" name="eventName" placeholder="Type here..">
       </div>
     </div>
-        <div class="row">
+    <div class="row">
       <div class="col-25">
         <label for="fname">Event Type</label>
       </div>
       <div class="col-75">
-              <select id="type" name="type">
-          <option value="interview">Interview</option>
-          <option value="fair">Career Fair</option>
-          <option value="info">Information Session</option>
+        <select id="type" name="eventType">
+          <option value="Interview">Interview</option>
+          <option value="Career Fair">Career Fair</option>
+          <option value="Information Session">Information Session</option>
         </select>
       </div>
     </div>
@@ -116,9 +117,9 @@ input[type=submit]:hover {
       </div>
       <div class="col-75">
         <select id="attire" name="attire">
-          <option value="australia">Casual</option>
-          <option value="canada">Business Casual</option>
-          <option value="usa">Business Formal</option>
+          <option value="Casual">Casual</option>
+          <option value="Business Casual">Business Casual</option>
+          <option value="Business Formal">Business Formal</option>
         </select>
       </div>
     </div>
@@ -131,11 +132,10 @@ input[type=submit]:hover {
       </div>
     </div>
     <div class="row">
-    <form action="agenda.html">
-      <input type="submit" value="Submit">
-    </form>
+    <input name="agendaSubmit" type="submit">
     </div>
-</div>
+  </div>
+</form>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 from app import b_app
-from app.database import userAcct
+from app.database import userAcct, usrAgenda, getAgenda
 import requests
 import re
 import shelve
@@ -7,6 +7,7 @@ from flask import render_template, request, make_response, redirect, url_for
 
 loggedIn = False
 currUser = ""
+email = ""
 
 @b_app.context_processor
 def addUser():
@@ -18,12 +19,15 @@ def home():
     pw = ""
     acct = ""
     err = ""
+    print "in register"
+    print (request.method)
 
     #if the user is logged in, do not allow them to go back to register
     print currUser
     if currUser != "":
         return redirect(url_for('index'))
 
+    print(request.method)
     if request.method == 'POST':
         #if the sign in button was pressed
         data = request.form['signSubmit']
@@ -37,6 +41,7 @@ def home():
                     if s[str(request.form.get('user_key'))]['password'] == str(request.form.get('user_password')):
                         loggedIn = True
                         currUser = s[str(request.form.get('user_key'))]['name']
+                        email = str(request.form.get('user_key'))
                         return redirect(url_for('index'))
 					#if not failure, display output
                     else:
@@ -71,11 +76,13 @@ def home():
                 return render_template("register.html", err=err)
             #if no error take them to index page
             else:
-				err = ""
-				loggedIn = True
-				global currUser
-				currUser = name
-				return redirect(url_for('index'))
+                err = ""
+                loggedIn = True
+                global currUser
+                currUser = name
+                global email
+                email = acct
+                return redirect(url_for('index'))
 
 
     #create the view for register.html
@@ -96,10 +103,25 @@ def signup():
 
     return render_template('clothing.html')
 
-@b_app.route('/agenda.html')
+@b_app.route('/agenda.html', methods=['GET', 'POST'])
 def newthing():
     if currUser == "":
         return redirect(url_for('home'))
+
+    print "in agenda"
+    print (request.method)
+    info = None
+
+    if request.method == 'POST':
+        eventName = request.form.get('eventName')
+        eventType = request.form.get('eventType')
+        compName = request.form.get('companyname')
+        attire = request.form.get('attire')
+        additional = request.form.get('info')
+
+        alert = usrAgenda(email, eventName, eventType, compName, attire, additional)
+        return redirect(url_for('profile', alert=alert))
+
 
     return render_template('agenda.html')
 
@@ -119,7 +141,7 @@ def newdate():
 
 @b_app.route('/about.html')
 def aboutus():
-    if currUser == "":
+    if currUser == "": 
         return redirect(url_for('home'))
 
     return render_template('about.html')
@@ -132,3 +154,12 @@ def signout():
         return redirect(url_for('home'))
 
     return render_template('signout.html')
+
+@b_app.route('/profile.html')
+def profile():
+    print currUser
+    if currUser == "":
+        return redirect(url_for('home'))
+
+    agenda = getAgenda(email)
+    return render_template('profile.html', agenda=agenda)
