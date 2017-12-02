@@ -5,16 +5,64 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
 {% if alert %}
 <div class="alert alert-info">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ alert }}
-</div> 
+</div>
 {% endif %}
 
-{% for a in agenda %}
-<p> {{ a }} </p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Agenda List</h3>
+      </div>
+          <ul class="list-group">
+            {% for a in agenda %}
+            <li class="list-group-item">
+              <div class="row toggle" id="dropdown-detail-{{ a['id'] }}" data-toggle="detail-{{ a['id'] }}">
+                <div class="col-xs-10">
+                    {{ a['eventName']}}
+                </div>
+                <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
+            </div>
+            <div id="detail-{{ a['id']}}">
+                <hr></hr>
+                <div class="container">
+                    <div class="fluid-row">
+                        <p><b>
+                            Event Type</b>: {{ a['eventType'] }}
+                        </p>
+                        <p><b>
+                            Company</b>: {{ a['compName'] }}
+                        </p>
+                        <p><b>
+                            Attire</b>: {{ a['attire'] }}
+                        </p>
+                        <p><b>
+                            Additional Information</b>: {{ a['additional'] }}
+                        </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-{% endfor %}
 
 
+<script>
+$(document).ready(function() {
+    $('[id^=detail-]').hide();
+    $('.toggle').click(function() {
+        $input = $( this );
+        $target = $('#'+$input.attr('data-toggle'));
+        $target.slideToggle();
+    });
+});
+</script>
 {% endblock %}
