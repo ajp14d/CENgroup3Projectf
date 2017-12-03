@@ -4,8 +4,6 @@ import shelve
 import re
 import requests
 
-num = 1
-
 def userAcct(name, user, password):
 	print("conncected")
 	try:
@@ -34,7 +32,13 @@ def usrAgenda(user, eventName, eventType, compName, attire, additional):
 		data = shelve.open('acct.db', writeback = True)
 		#set the list to the user's existing list if it exists
 		agendaList = data[user]['agenda']
-		global num
+
+		if not agendaList:
+			num = 1
+		else:
+			num = agendaList[-1]['id'] + 1
+
+		print ("NUM: ", num)
 
 		#store the agenda information in a dict
 		agenda = {'id' : num,
@@ -49,14 +53,12 @@ def usrAgenda(user, eventName, eventType, compName, attire, additional):
 		agendaList.append(agenda)
 		#update it in the database
 		data[user]['agenda'] = agendaList
-		num = num + 1
 
-		print num
 		data.close()
-		print "successful"
+		print "agenda successful"
 		return "Created successfully"
 	except:
-		print "failure"
+		print "agenda failure"
 		return "Failed to create"
 
 def getAgenda(user):
