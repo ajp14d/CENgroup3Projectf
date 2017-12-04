@@ -155,7 +155,7 @@ def newinterview():
 	decision = request.form.get('decision')
 	questions = request.form.get('questions')
 
-        nextalert = usrInterview(user, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions)
+        nextalert = usrInterviewQA(user, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions)
         return redirect(url_for('profile', nextalert=nextalert))
 
 
