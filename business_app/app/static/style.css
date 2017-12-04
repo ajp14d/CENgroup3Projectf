@@ -57,7 +57,7 @@ td {
   width: 14.28571429%;
 }
 td.not-current {
-  color: black;
+  color: #c0c0c0;
 }
 td.today {
   font-weight: 700;
