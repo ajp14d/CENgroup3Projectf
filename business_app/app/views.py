@@ -9,7 +9,7 @@ loggedIn = False
 currUser = ""
 email = ""
 
-#implementation of the added user 
+#implementation of the added user
 
 @b_app.context_processor
 def addUser():
@@ -90,7 +90,7 @@ def home():
     #create the view for register.html
     return render_template('register.html', err=err)
 
-#each line below connects the html page to the views.py page to redirect the links from the home page 
+#each line below connects the html page to the views.py page to redirect the links from the home page
 @b_app.route('/index.html', methods=['GET', 'POST'])
 def index():
     if currUser == "":
@@ -155,7 +155,7 @@ def newinterview():
 	decision = request.form.get('decision')
 	questions = request.form.get('questions')
 
-        nextalert = usrInterviewQA(user, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions)
+        nextalert = usrInterviewQA(email, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions)
         return redirect(url_for('profile', nextalert=nextalert))
 
 
@@ -180,7 +180,7 @@ def newlocation():
 
 @b_app.route('/about.html')
 def aboutus():
-    if currUser == "": 
+    if currUser == "":
         return redirect(url_for('home'))
 
     return render_template('about.html')
