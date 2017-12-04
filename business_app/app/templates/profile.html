@@ -68,6 +68,73 @@
       </div>
 
 
+{% if nextalert %}
+<div class="nextalert nextalert-info">
+  <a href="#" class="close" data-dismiss="nextalert" aria-label="close">&times;</a>{{ nextalert }}
+</div>
+{% endif %}
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Interview Q&A List</h3>
+      </div>
+          <ul class="list-group">
+            {% for a in interview %}
+            <li class="list-group-item">
+              <div class="row toggle" id="dropdown-detail-{{ a['id'] }}" data-toggle="detail-{{ a['id'] }}">
+                <div class="col-xs-10">
+                    {{ a['yourself']}}
+                </div>
+                <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
+            </div>
+            <div id="detail-{{ a['id']}}">
+                <hr></hr>
+                <div class="container">
+                    <div class="fluid-row">
+                        <p><b>
+                            Question 1</b>: {{ a['goals'] }}
+                        </p>
+			<p><b>
+                            Question 2</b>: {{ a['want'] }}
+                        </p>
+			<p><b>
+                            Question 3</b>: {{ a['expecting'] }}
+                        </p>
+			<p><b>
+                            Question 4</b>: {{ a['strweak'] }}
+                        </p>
+                        <p><b>
+                            Question 5</b>: {{ a['leave'] }}
+                        </p>
+                        <p><b>
+                            Question 6</b>: {{ a['describe'] }}
+                        </p>
+                        <p><b>
+                            Question 7</b>: {{ a['situation'] }}
+                        </p>
+			 <p><b>
+                            Question 8</b>: {{ a['position'] }}
+                        </p>
+			 <p><b>
+                            Question 9</b>: {{ a['decision'] }}
+                        </p>
+			 <p><b>
+                            Question 10</b>: {{ a['questions'] }}
+                        </p>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            </li>
+          </ul>
+        </div>
+</div>
+
+
+
 
 <script>
 $(document).ready(function() {

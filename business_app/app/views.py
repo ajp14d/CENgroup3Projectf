@@ -1,5 +1,5 @@
 from app import b_app
-from app.database import userAcct, usrAgenda, getAgenda
+from app.database import userAcct, usrAgenda, getAgenda, usrInterviewQA, getInterview
 import requests
 import re
 import shelve
@@ -132,10 +132,33 @@ def newthing():
 
     return render_template('agenda.html')
 
-@b_app.route('/interviewQA.html')
+@b_app.route('/interviewQA.html', methods=['GET', 'POST'])
 def newinterview():
     if currUser == "":
         return redirect(url_for('home'))
+
+    print "in interview"
+    print (request.method)
+    info = None
+
+    if request.method == 'POST':
+        yourself = request.form.get('yourself')
+        goals = request.form.get('goals')
+        why = request.form.get('why')
+        want = request.form.get('want')
+        expecting = request.form.get('expecting')
+        strweak = request.form.get('strweak')
+        leave = request.form.get('leave')
+        describe = request.form.get('describe')
+	situation = request.form.get('situation')
+	position = request.form.get('position')
+	decision = request.form.get('decision')
+	questions = request.form.get('questions')
+
+        nextalert = usrInterview(user, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions)
+        return redirect(url_for('profile', nextalert=nextalert))
+
+
 
     return render_template('interviewQA.html')
 
