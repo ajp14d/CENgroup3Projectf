@@ -9,6 +9,8 @@ loggedIn = False
 currUser = ""
 email = ""
 
+<!-- implementation of the added user --> 
+
 @b_app.context_processor
 def addUser():
   return dict(acct=currUser)
@@ -88,6 +90,7 @@ def home():
     #create the view for register.html
     return render_template('register.html', err=err)
 
+#each line below connects the html page to the views.py page to redirect the links from the home page 
 @b_app.route('/index.html', methods=['GET', 'POST'])
 def index():
     if currUser == "":
