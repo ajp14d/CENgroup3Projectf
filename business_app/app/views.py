@@ -118,9 +118,9 @@ def newthing():
     if request.method == 'POST':
         eventName = request.form.get('eventName')
         eventType = request.form.get('eventType')
-	location = request.form.get('location')
-	date = request.form.get('date')
-	time = request.form.get('time')
+        location = request.form.get('location')
+        date = request.form.get('date')
+        time = request.form.get('time')
         compName = request.form.get('companyname')
         attire = request.form.get('attire')
         additional = request.form.get('info')
@@ -142,21 +142,22 @@ def newinterview():
     info = None
 
     if request.method == 'POST':
-        yourself = request.form.get('yourself')
-        goals = request.form.get('goals')
-        why = request.form.get('why')
-        want = request.form.get('want')
-        expecting = request.form.get('expecting')
-        strweak = request.form.get('strweak')
-        leave = request.form.get('leave')
-        describe = request.form.get('describe')
-	situation = request.form.get('situation')
-	position = request.form.get('position')
-	decision = request.form.get('decision')
-	questions = request.form.get('questions')
+        if request.form['interviewSubmit'] == 'submitted':
+            yourself = request.form.get('yourself')
+            goals = request.form.get('goals')
+            why = request.form.get('why')
+            want = request.form.get('want')
+            expecting = request.form.get('expecting')
+            strweak = request.form.get('strweak')
+            leave = request.form.get('leave')
+            describe = request.form.get('describe')
+            situation = request.form.get('situation')
+            position = request.form.get('position')
+            decision = request.form.get('decision')
+            questions = request.form.get('questions')
 
-        nextalert = usrInterviewQA(email, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions)
-        return redirect(url_for('profile', nextalert=nextalert))
+            nextalert = usrInterviewQA(email, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions)
+            return redirect(url_for('profile', nextalert=nextalert))
 
 
 
