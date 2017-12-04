@@ -9,7 +9,7 @@ loggedIn = False
 currUser = ""
 email = ""
 
-<!-- implementation of the added user --> 
+#implementation of the added user 
 
 @b_app.context_processor
 def addUser():
