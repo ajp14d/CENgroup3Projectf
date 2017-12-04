@@ -4,6 +4,8 @@ import shelve
 import re
 import requests
 
+#database that saves the users profile and their agenda 
+
 def userAcct(name, user, password):
 	print("conncected")
 	try:
