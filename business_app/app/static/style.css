@@ -7,8 +7,7 @@ body {
   font-size: 100%;
   line-height: 1.5;
   font-family: "Roboto Condensed", sans-serif;
-  background-color: #444;
-  background: #444;
+  background-color: #F5F5F5;
   background-image: -webkit-linear-gradient(#28283b 0%, #0f0f17 100%);
   background-image: linear-gradient(#28283b 0%, #0f0f17 100%);
   font-family: "Helvetica Neue";
