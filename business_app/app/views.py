@@ -139,6 +139,15 @@ def newdate():
 
     return render_template('Calendar.html')
 
+@b_app.route('/maps.html')
+def newlocation():
+    if currUser == "":
+        return redirect(url_for('home'))
+
+    return render_template('maps.html')
+
+
+
 @b_app.route('/about.html')
 def aboutus():
     if currUser == "": 
