@@ -124,9 +124,7 @@ def newthing():
         compName = request.form.get('companyname')
         attire = request.form.get('attire')
         additional = request.form.get('info')
-	
-	db.session.add(Interview)
-	db.session.commit()
+
 
         alert = usrAgenda(email, eventName, eventType, location, date, time, compName, attire, additional)
         return redirect(url_for('profile', alert=alert))
