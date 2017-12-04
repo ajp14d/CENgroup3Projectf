@@ -115,11 +115,14 @@ def newthing():
     if request.method == 'POST':
         eventName = request.form.get('eventName')
         eventType = request.form.get('eventType')
+	location = request.form.get('location')
+	date = request.form.get('date')
+	time = request.form.get('time')
         compName = request.form.get('companyname')
         attire = request.form.get('attire')
         additional = request.form.get('info')
 
-        alert = usrAgenda(email, eventName, eventType, compName, attire, additional)
+        alert = usrAgenda(email, eventName, eventType, location, date, time, compName, attire, additional)
         return redirect(url_for('profile', alert=alert))
 
 

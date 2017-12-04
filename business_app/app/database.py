@@ -26,7 +26,7 @@ def userAcct(name, user, password):
 	data.close()
 
 
-def usrAgenda(user, eventName, eventType, compName, attire, additional):
+def usrAgenda(user, eventName, eventType, location, date, time, compName, attire, additional):
 	try:
 		#open the database
 		data = shelve.open('acct.db', writeback = True)
@@ -44,6 +44,9 @@ def usrAgenda(user, eventName, eventType, compName, attire, additional):
 		agenda = {'id' : num,
 				  'eventName' : eventName,
 			  	  'eventType' : eventType,
+				  'location' : location,
+				  'date' : date,
+				  'time' : time,
 			  	  'compName' : compName,
 			      'attire' : attire,
 			  	  'additional' : additional}
