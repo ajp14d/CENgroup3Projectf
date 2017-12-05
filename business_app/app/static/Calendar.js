@@ -20,6 +20,11 @@ var Cal = function(divId) {
   // Set the current month, year
   var d = new Date();
 
+  var evnt = new Date("December 14, 2017);
+  this.EventMonth = 11;
+  this.EventYear = 2017;
+  this.EventDay = evnt.getDate();
+  
   this.currMonth = d.getMonth();
   this.currYear = d.getFullYear();
   this.currDay = d.getDate();
@@ -108,9 +113,14 @@ Cal.prototype.showMonth = function(y, m) {
     var chkY = chk.getFullYear();
     var chkM = chk.getMonth();
     if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
-      html += '<td class="today">' + i + '</td>';
+      html += '<td class="today">' + i + '</td>';               //for current day
     } else {
+      if(chkY == this.currYear && chkM == this.currMonth && i == 14) {            //for event day
+        html += '<td class="event">' + i + "*" + '</td>';
+      }
+      else {
       html += '<td class="normal">' + i + '</td>';
+      }
     }
     // If Saturday, closes the row
     if ( dow == 6 ) {
@@ -131,6 +141,8 @@ Cal.prototype.showMonth = function(y, m) {
 
   // Closes table
   html += '</table>';
+  
+  html += '<td class="event">' + "December 14: Interview with Google at 3:00 P.M." + '</td>';
 
   // Write HTML to the div
   document.getElementById(this.divId).innerHTML = html;
