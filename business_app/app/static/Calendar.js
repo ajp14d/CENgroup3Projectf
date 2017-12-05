@@ -20,7 +20,7 @@ var Cal = function(divId) {
   // Set the current month, year
   var d = new Date();
 
-  var evnt = new Date("December 14, 2017);
+  var evnt = new Date("December 14, 2017");
   this.EventMonth = 11;
   this.EventYear = 2017;
   this.EventDay = evnt.getDate();
