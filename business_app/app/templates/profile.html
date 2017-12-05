@@ -82,9 +82,9 @@
           <ul class="list-group">
             {% for a in interview %}
             <li class="list-group-item">
-              <div class="row toggle" id="dropdown-detail-{{ a['id'] }}" data-toggle="detail-{{ a['id'] }}">
-                <div class="col-xs-10">
-                    {{ a['yourself']}}
+              <div class="row toggle" id="dropdown-detail-{{ a['id'] }}" data-toggle="detail-{{ a['id'] }}" value="Responses">
+		<div class="col-xs-10">
+                    {{ Responses }}
                 </div>
                 <div class="col-xs-2"><i class="fa fa-chevron-down pull-right"></i></div>
             </div>
@@ -92,35 +92,41 @@
                 <hr></hr>
                 <div class="container">
                     <div class="fluid-row">
+			<p><b>
+                            Tell me about yourself.</b>: {{ a['yourself'] }}
+                        </p>
                         <p><b>
-                            Question 1</b>: {{ a['goals'] }}
+                            What are some of your short and long term goals?</b>: {{ a['goals'] }}
                         </p>
 			<p><b>
-                            Question 2</b>: {{ a['want'] }}
+                            Why should we hire you? What do you bring to the table?</b>: {{ a['why'] }}
                         </p>
 			<p><b>
-                            Question 3</b>: {{ a['expecting'] }}
+                            Why do you want to work here? What do you know about this company and position?</b>: {{ a['want'] }}
                         </p>
 			<p><b>
-                            Question 4</b>: {{ a['strweak'] }}
+                            What are you expecting as far as compensation?</b>: {{ a['expecting'] }}
+                        </p>
+			<p><b>
+                            What are your strengths and weaknesses?</b>: {{ a['strweak'] }}
                         </p>
                         <p><b>
-                            Question 5</b>: {{ a['leave'] }}
+                            Why do you want to leave your current job? Why did you leave your previous job?</b>: {{ a['leave'] }}
                         </p>
                         <p><b>
-                            Question 6</b>: {{ a['describe'] }}
+                            How would your previous/current boss or coworkers describe you?</b>: {{ a['describe'] }}
                         </p>
                         <p><b>
-                            Question 7</b>: {{ a['situation'] }}
+                            Tell me about a time you were in the midst of a stressful situation, and how did you deal with it?</b>: {{ a['situation'] }}
                         </p>
 			 <p><b>
-                            Question 8</b>: {{ a['position'] }}
+                            What are your goals for this position?</b>: {{ a['position'] }}
                         </p>
 			 <p><b>
-                            Question 9</b>: {{ a['decision'] }}
+                            Tell me about a time you disagreed with a decision that was make at work and how did you deal with it?</b>: {{ a['decision'] }}
                         </p>
 			 <p><b>
-                            Question 10</b>: {{ a['questions'] }}
+                            Do you have any questions for us?</b>: {{ a['questions'] }}
                         </p>
                         </div>
                         {% endfor %}
