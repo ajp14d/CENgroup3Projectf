@@ -53,7 +53,7 @@ def usrAgenda(user, eventName, eventType, location, date, time, compName, attire
 			  	  'compName' : compName,
 			      'attire' : attire,
 			  	  'additional' : additional}
-
+                Evnts = agenda.values()
 		print agenda
 		#append to the agenada list
 		agendaList.append(agenda)
