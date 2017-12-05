@@ -59,6 +59,11 @@ td {
 td.not-current {
   color: #c0c0c0;
 }
+td.event {
+  font-weight: 200;
+  color: black;
+  font-size: 1.5em;
+}
 td.today {
   font-weight: 700;
   color: #444;
