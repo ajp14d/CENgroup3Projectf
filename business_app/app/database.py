@@ -67,7 +67,7 @@ def usrAgenda(user, eventName, eventType, location, date, time, compName, attire
 		print "agenda failure"
 		return "Failed to create"
 
-def usrInterviewQA(user, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions, company):
+def usrInterviewQA(user, company, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions):
 	try:
 		#open the database
 		data = shelve.open('acct.db', writeback = True)
@@ -83,6 +83,7 @@ def usrInterviewQA(user, yourself, goals, why, want, expecting, strweak, leave, 
 
 		#store the agenda information in a dict
 		interview = {'id' : num,
+				  'company' : company,
 				  'yourself' : yourself,
 			  	  'goals' : goals,
 				  'why' : why,
@@ -94,8 +95,7 @@ def usrInterviewQA(user, yourself, goals, why, want, expecting, strweak, leave, 
 				'situation' : situation,
 				'position' : position,
 				'decision' : decision,
-				'questions' : questions
-			    	'company' : company}
+				'questions' : questions}
 
 		print interview
 		#append to the agenada list

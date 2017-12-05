@@ -143,6 +143,7 @@ def newinterview():
 
     if request.method == 'POST':
         if request.form['interviewSubmit'] == 'submitted':
+	    company = request.form.get('company')
             yourself = request.form.get('yourself')
             goals = request.form.get('goals')
             why = request.form.get('why')
@@ -157,7 +158,7 @@ def newinterview():
             questions = request.form.get('questions')
 	    company = request.form.get('company')
 
-            nextalert = usrInterviewQA(email, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions, company)
+            nextalert = usrInterviewQA(email, company, yourself, goals, why, want, expecting, strweak, leave, describe, situation, position, decision, questions, company)
             return redirect(url_for('profile', nextalert=nextalert))
 
 
