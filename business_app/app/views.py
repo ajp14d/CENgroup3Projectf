@@ -202,4 +202,5 @@ def profile():
         return redirect(url_for('home'))
 
     agenda = getAgenda(email)
-    return render_template('profile.html', agenda=agenda)
+    interview = getInterview(email)
+    return render_template('profile.html', agenda=agenda, interview=interview)
