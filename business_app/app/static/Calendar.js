@@ -23,7 +23,7 @@ var Cal = function(divId) {
   //var myObj = JSON.parse(dict);                   //taking database dictionary data and converting it to a javascript object
   //document.getElementById(this.divId).innerHTML = myObj.name;   
   
-  var evnt = new Date("December 14, 2017");        //example to compare to
+  var evnt = new Date();
   this.EventMonth = 11;
   this.EventYear = 2017;
   this.EventDay = evnt.getDate();
