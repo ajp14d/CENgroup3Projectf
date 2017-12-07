@@ -4,7 +4,7 @@ import shelve
 import re
 import requests
 
-#database that saves the users profile and their agenda 
+#database that saves the users profile and their agenda
 
 def userAcct(name, user, password):
 	print("conncected")
@@ -53,7 +53,7 @@ def usrAgenda(user, eventName, eventType, location, date, time, compName, attire
 			  	  'compName' : compName,
 			      'attire' : attire,
 			  	  'additional' : additional}
-                
+
 		print agenda
 		#append to the agenada list
 		agendaList.append(agenda)
@@ -75,7 +75,7 @@ def usrInterviewQA(user, company, yourself, goals, why, want, expecting, strweak
 		interviewList = data[user]['interview']
 
 		if not interviewList:
-			num = 1
+			num = 100
 		else:
 			num = interviewList[-1]['id'] + 1
 
