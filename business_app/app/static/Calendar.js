@@ -26,7 +26,7 @@ var Cal = function(divId) {
   var evnt = new Date();
   this.EventMonth = 11;
   this.EventYear = 2017;
-  this.EventDay = evnt.getDate();
+  this.EventDay = 18;
   
   this.currMonth = d.getMonth();
   this.currYear = d.getFullYear();
@@ -118,7 +118,7 @@ Cal.prototype.showMonth = function(y, m) {
     if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
       html += '<td class="today">' + i + '</td>';               //for current day
     } else {
-      if(chkY == this.currYear && chkM == this.currMonth && i == 14) {            //for event day
+      if(chkY == this.currYear && chkM == this.currMonth && i == this.EventDay) {            //for event day
         html += '<td class="event">' + i + "*" + '</td>';
       }
       else {
