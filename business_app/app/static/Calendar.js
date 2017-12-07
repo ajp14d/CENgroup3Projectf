@@ -138,11 +138,8 @@ Cal.prototype.showMonth = function(y, m) {
 
     i++;
   }while(i <= lastDateOfMonth);
-
-  // Closes table
-  html += '</table>';
   
-  html += '<td class="event">' + "December 14: Interview with Google at 3:00 P.M." + '</td>';
+  html += '</table>';        //Closes the table       
 
   // Write HTML to the div
   document.getElementById(this.divId).innerHTML = html;
