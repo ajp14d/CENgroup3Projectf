@@ -20,7 +20,10 @@ var Cal = function(divId) {
   // Set the current month, year
   var d = new Date();
 
-  var evnt = new Date("December 14, 2017");
+  //var myObj = JSON.parse(dict);                   //taking database dictionary data and converting it to a javascript object
+  //document.getElementById(this.divId).innerHTML = myObj.name;   
+  
+  var evnt = new Date("December 14, 2017");        //example to compare to
   this.EventMonth = 11;
   this.EventYear = 2017;
   this.EventDay = evnt.getDate();
